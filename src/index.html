@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap-material-design.css">
+    <script type="text/js" src="bootstrap-material-design.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>{{msg}}</h1><br>
+            <h3>{{counter}}</h3><br>
+            <p>...{{ greet('123141234') }}...</p><br>
+            <a v-bind:href="website" target="blank">LINK</a>       
+            <p v-for="todo in todos" v-if="todo.isComplete"> {{todo.contents}}</p>
+            <button class="col-md-1" v-on:click="counter += 1">버튼</button>
+            <button class="col-md-1" @click="func1">fucn1</button>
+        </div>
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app', // 어떤 엘리먼트에 적용을 할 지 정합니다
+            // data 는 해당 뷰에서 사용할 정보를 지닙니다
+            data: {
+                msg: 'Vue',
+                counter: 0,
+                website: 'http://www.naver.com',
+                todos : [{
+                    contents: 'vue 정복하자1',
+                    isComplete: 'true'
+                },{
+                    contents: 'vue 정복하자2',
+                    isComplete: 'false'
+                },{
+                    contents: 'vue 정복하자3 ',
+                    isComplete: 'true'
+                }]
+            },
+            methods: {               
+                greet : function (str) {
+                    console.log("fucn1 execute");
+                    var tmp = this.msg;
+                    return 'Good' + str + tmp;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
