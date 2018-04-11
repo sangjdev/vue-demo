@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="vue-app-one" style="text-align: center">
+            <h2>vue-app-one</h2>
+            <greeting></greeting>
+        </div>
+        <div id="vue-app-two" style="text-align: center">
+            <h2>vue-app-two</h2>
+            <greeting></greeting>
+        </div>
+    </div>
+    <script> 
+        var data = {
+            name: 'Yoshi'
+        }
+        Vue.component('greeting', {
+            template: '<p>Hey there, i am {{name}} a re-usable componet <button v-on:click="changeName">changeName</button></p>',
+            data: function () {
+                return data
+            },
+            methods: {
+                changeName: function () {
+                    this.name = 'Mario'
+                }
+            }
+        });
+        new Vue({
+            el: '#vue-app-one'
+        });
+
+        new Vue({
+            el: '#vue-app-two'
+        });
+    </script>
+
+</body>
+
+</html>

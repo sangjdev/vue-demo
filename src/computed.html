@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>Computed Properties</h1>
+            <button @click="a++">Add to A</button>
+            <button @click="b++">Add to B</button>
+            <p>A - {{a}}</p>
+            <p>B - {{b}}</p>
+            <p>SUM - {{a+b}}</p>
+            <p>addToA - {{addToA}}</p>
+            <p>addToA - {{addToB}}</p>
+        </div>
+
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                age: 20,
+                a: 0,
+                b: 0
+            },
+            methods: {
+                // addToA: function () {
+                //     console.log('addToA');
+                //     return this.a + this.age;
+                // },
+                // addToB: function () {
+                //     console.log('addToB');
+                //     return this.b+ this.age;
+                // }
+            },
+            computed: {
+                addToA: function () {
+                    console.log('addToA');
+                    return this.a + this.age;
+                },
+                addToB: function () {
+                    console.log('addToB');
+                    return this.b+ this.age;
+                }
+            }
+        })
+    </script>
+    <!-- method를 호출해서 값을 받아서 뿌려주게 되면 모든함수를 실행해서
+    하나의 메소드만 호출을 해도 cnosole.log를 두번찍게 되는 현상을 볼 수 있었다.
+    computed를 사용했을때는 서로 각자의 메소드만 호출하는것을 볼 수있다.
+    그렇게 해주려며 () 를 빼야한다. -->
+</body>
+
+</html>

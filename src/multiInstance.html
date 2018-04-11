@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app-one" style="text-align: center">  
+            <h1>App-one</h1>
+            <p>{{title}}</p>
+            <p>{{greet}}</p>
+        </div>
+        <div id="app-two" style="text-align: center">          
+            <h1>App-two</h1>  
+            <p>{{title}}</p>
+            <p>{{greet}}</p>
+            <button v-on:click='changeTitle'>changeTitle</button>
+        </div>
+
+    </div>
+    <script> 
+        var app_one = new Vue({
+            el: '#app-one',
+            data: {      
+                title: 'Vue App One'
+            },
+            methods: {               
+            },
+            computed: {   
+                greet: function(){
+                    return "Hello app one"
+                }
+            }
+        });
+        var app_two = new Vue({
+            el: '#app-two',
+            data: {     
+                title: 'Vue App Two'          
+            },
+            methods: {
+                changeTitle: function () {
+                    app_one.title = "title"
+                }
+            },
+            computed: {
+                greet: function(){
+                    return "Hello app Two 2222"   
+                }                             
+            }
+        })
+
+        app_two.title = "title23232323"
+    </script>
+    <!-- 여러개의 인스턴스를 사용하는 예제이다.
+    인스턴스에서 다른 인스턴스의 data를 변경할 수 도 있다.
+    인스턴스 안이 아닌 외부에서도 인스턴스의 data값을 오버라이드 할 수 있다. -->
+</body>
+
+</html>

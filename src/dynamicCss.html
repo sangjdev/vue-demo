@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    span {background-color: green;}    
+    .available span {background-color: red;}
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>Dynamic CSS</h1>
+            <h2>Example 1</h2>
+            <div v-bind:class="{red:true}">red</div>
+            <div v-bind:class="{blue:true}">blue</div>
+            <div v-bind:class="{red:true,blue:false}">red & blue</div>
+            <div v-on:click="available = !available" v-bind:class="{available:available}">
+                <span>abcabc</span>
+            </div>
+             <h2>Example2</h2>
+             <button v-on:click="nearby = !nearby">nearby btn</button>
+             <button v-on:click="available = !available">avilable btn</button>
+             <div v-bind:class="compClasses">
+                 <span>two</span>
+             </div>
+        </div>
+
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                available: true,
+                nearby: false
+            },
+            methods: {
+                
+            },
+            computed: {
+                compClasses: function () {
+                    return {
+                        available: this.available,
+                        nearby: this.nearby
+                    }
+                }
+            }
+        })
+    </script>
+    <!-- css의 class 속성을 자유자재로 조작할 수 있음
+    jquery의 addClass와 비슷한 느낌이다. 클래스를 조작해서 색상을 조작하는 예제 -->
+</body>
+
+</html>

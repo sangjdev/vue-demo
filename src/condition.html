@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>Conditionals</h1>
+            <button v-on:click="error = !error">Toggle Error</button>
+            <button v-on:click="success = !success">Toggle Success</button>
+            <p v-if="error">There has been an error.</p>
+            <p v-else-if="success">There has been an success.</p>
+            <p v-show="error">Toggle Error</p>
+            <p v-show="success">Toggle success</p>
+        </div>
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                error: true,
+                success: true
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+    <!-- v-if를 사용하여 태그를 없앨 수있다. else도 가능하다. -->
+    <!-- v-show를 사용하여 태그를 안보이게 할 수 있다. dispaly:none를 갖는다.-->
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <p>{{age}}</p>
+            <button @click.once='add(1)'>add1</button>
+            <button v-on:click='subtract(1)'>subtract1</button>
+            <button v-on:dblclick='add(10)'>add10</button>
+            <button v-on:click='subtract(10)'>subtract10</button>
+            <div id="canvas" v-on:mousemove="updateXY" style="width:600px; padding: 200px 20px; text-align: center; border: 1px solid black;">{{x}}, {{y}}</div>
+            <a @click.prevent="clicked" href="http://www.naver.com">naver event modifier</a>
+        </div>
+
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                age: 25,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                add: function (inc) {
+                    this.age += inc;
+                },
+                subtract: function (dec) {
+                    this.age -= dec;
+                },
+                updateXY: function (event) {
+                    console.log(event);
+                    this.x = event.offsetX;
+                    this.y = event.offsetY;
+                },
+                clicked: function () {
+                    alert("333");
+                }
+            }
+        })
+    </script>
+    <!-- 또 methods 인데 s를 안붙히고 오류가 나는실수를 했다 -->
+    <!-- 클릭이벤트나 더블클릭이벤트를 넣고 뷰인스턴스에 메소드에 구현을 할 수 있다.-->
+    <!-- 클릭은 v-on:click  @click 둘다 가능하다 -->
+
+    <!-- 캔버스에 마우스 오버를 했을때  이벤트객체를 전달받고 이벤트 객체에 있는 값을 사용할 수 있다.-->
+
+    <!-- 이벤트 수식어(한정어) 홈페이지참조-->
+    <!-- v-on:click.once 점을 붙히고 once를 하게되면 한번만 사용가능 -->
+    <!-- v-on:click.prevent를 하게 되면 원래 태그에서 작동하는 이벤트를 막는다 -->
+</body>
+
+</html>

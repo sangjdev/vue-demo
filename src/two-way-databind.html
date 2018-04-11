@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>keyboard Events</h1>
+            <label for="">Name:</label>
+            <input type="text" v-model="name">
+            <span>{{name}}</span>
+            <label for="">Age:</label>
+            <input type="text" v-model="age">
+            <span>{{age}}</span>
+        </div>
+
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                age: ''                
+            },
+            methods: {   
+                logName: function () {
+                    
+                },
+                logAge: function () {
+                    console.log("you entered your age");
+                }             
+            }
+        })
+    </script>
+    <!-- v-model을 사용할시 two-way-databind가 가능해 진다.
+    추후에 아이디 비밀번호 유효성 검사할때 사용할 수 있을것 같다.-->
+</body>
+
+</html>

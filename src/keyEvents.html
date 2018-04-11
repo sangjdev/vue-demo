@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>keyboard Events</h1>
+            <label for="">Name:</label>
+            <input type="text" v-on:keyup.enter="logName" name="" id="">
+            <span>{{name}}</span>
+            <label for="">Age:</label>
+            <input type="text" v-on:keyup.alt.enter="logAge" name="" id="">            
+            <span>{{age}}</span>
+        </div>
+
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'sangj',
+                age: '24'                
+            },
+            methods: {   
+                logName: function () {
+                    console.log("you entered your name");
+                },
+                logAge: function () {
+                    console.log("you entered your age");
+                }             
+            }
+        })
+    </script>
+    <!-- v-on:keyup은 input 태그에 입력할때마다 메소드를 호출하고
+    v-on:keyup.enter 입력하고 엔터할때 호출
+    v-on:keyup.alt.enter 는 입력학 alt+enter를 눌럿을때 호출하게 된다.,-->
+</body>
+
+</html>

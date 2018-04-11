@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h1>Looping lists</h1>
+            <ul>
+                <li v-for='(x,i) in characters'>{{i}}+{{x}}</li>
+            </ul>
+            <ul>
+                <li v-for='(ninja, i) in ninjas'>{{i}} - {{ninja.name}}-{{ninja.age}}</li>
+            </ul>
+            <template v-for='(ninja, index) in ninjas'>
+                <h3>{{index}}.{{ninja.name}}</h3>
+                <p>{{ninja.age}}</p>
+            </template>
+            <template v-for='ninja in ninjas'>
+                <div v-for='(val,key) in ninja'>
+                    <p>{{key}} - {{val}}</p>
+                </div>
+            </template>
+        </div>
+    </div>
+    <script> 
+        var app = new Vue({
+            el: '#app',
+            data: {
+                characters: ['mario','Luigi','Yoshi','Bowser'],
+                ninjas: [
+                    {name: 'sangj', age: 24},
+                    {name: 'sanga', age: 22},
+                    {name: 'sangb', age: 23},                    
+                ]
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+    <!-- 배열로 for in문을 돌릴수 있고 배열안에 있는 자바스크립트객체를 .로 접근가능하다.
+    for in문에서 index를 뽑고싶으면 앞에 (배열이름, 인덱스)를 사용하고,
+    div같은 태그에 담지않고 아무것에도 담지않고 for문을 쓰고싶다면
+    <template> 태그에 담으면 됀다. -->
+    <!-- for문으로 배열만 돌릴게 아니라 js오브젝트도 넣을 수 있다. -->
+    
+</body>
+
+</html>
