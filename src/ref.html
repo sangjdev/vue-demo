@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div class="container">
+        <div id="app" style="text-align: center">
+            <h2>Refs</h2>            
+            <input type="text" ref="input">
+            <button v-on:click='readRefs'>Submit</button>
+            <p>your fav food: {{output}}</p>
+            <div ref='test'>hello test</div>
+        </div>
+    </div>
+    <script> 
+        new Vue({
+            el: '#app',
+            data: {
+                output: 'you'
+            },
+            methods: {
+                readRefs: function () {
+                    console.log(this.$refs.input.value);
+                    console.log(this.$refs);
+                    console.log(this.$refs.test.innerText);
+                    this.output = this.$refs.input.value;
+                }
+            }
+        })
+    </script>
+    <!-- 진짜 강력한 기능이다. 이게 jquery 의 val의 기능이라고 볼 수도있겠다.
+    this.$refs 까지만 쓰면 ref를 가지고 있는 모든 요소들을 찾을 수 있다. -->
+</body>
+
+</html>

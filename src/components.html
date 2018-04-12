@@ -21,13 +21,26 @@
         </div>
     </div>
     <script> 
-        var data = {
-            name: 'Yoshi'
-        }
+        // var data = {
+        //     name: 'Yoshi'
+        // }
+        // Vue.component('greeting', {
+        //     template: '<p>Hey there, i am {{name}} a re-usable componet <button v-on:click="changeName">changeName</button></p>',
+        //     data: function () {
+        //         return data
+        //     },
+        //     methods: {
+        //         changeName: function () {
+        //             this.name = 'Mario'
+        //         }
+        //     }
+        // });        
         Vue.component('greeting', {
             template: '<p>Hey there, i am {{name}} a re-usable componet <button v-on:click="changeName">changeName</button></p>',
             data: function () {
-                return data
+                return {
+                    name: 'Yoshi'
+                }
             },
             methods: {
                 changeName: function () {
@@ -43,7 +56,8 @@
             el: '#vue-app-two'
         });
     </script>
-
+    <!-- Vue.component를 만들어서 컴포넌트안에 템플릿태그를 넣고 data에 있는 값을 넣고 조작하는 예제이다.
+    data를 작성할때는 무조건 함수로 작성해야하고 한다. 아직은 좀 이해가 안가는부분도 있다. -->
 </body>
 
 </html>
