@@ -1,8 +1,9 @@
 <template>
   <div>
     <!-- <addBlog></addBlog> -->
-    <show-blog></show-blog>
-    <list-Blogs></list-Blogs>
+    <!-- <show-blog></show-blog>
+    <list-Blogs></list-Blogs> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -58,6 +59,11 @@ export default {
 
 //mixin을 이해하려고 searchMixin.js를 만들었는데 이해하지 못했다..
 //한페이지에서 같은 다른컴포넌트지만 겹치는게 있다면 그것을 묶어주는 기능인것 같다.
+
+//npm install vue-router --save
+//vue-router를 install 하고 임포트하고 router.js 에서 라우터를 정의한후 export
+//main.js 에 router 프로퍼티를 추가하고 최종적으로 템플릿 태그에 <router-view></router-view>
+//를 추가해줘서 페이지 라우팅을 했다.
 </script>
 
 <style>
